@@ -3380,7 +3380,7 @@ class LineGeometry(RootModel[Union[LineGeometry_LineSpacing, LineGeometry_xh]]):
                     output.write(f" H={_H[_Cond]}")
                 _Units = fields.get('Units')
                 if _Units is not None:
-                    output.write(f" Units={_Units[_Cond]}")
+                    output.write(f" Units={_quoted(_Units[_Cond])}")
                 _Conductors = fields.get("Conductors") or []
                 if _Conductors:
                     cnd_cls, cnd_name = _Conductors[_Cond].split('.', 1)
