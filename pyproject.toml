@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "NREL-altdss-schema"
-version = "0.0.2"
+version = "0.0.4"
 description = 'Pydantic data models for OpenDSS.'
 readme = "README.md"
 requires-python = ">=3.10"
@@ -26,6 +26,9 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = ["pydantic"]
+
+[project.optional-dependencies]
+test = ["pytest", "opendssdirect.py"]
 
 [project.urls]
 Documentation = "https://github.com/NREL-Distribution-Suites/altdss-schema#readme"

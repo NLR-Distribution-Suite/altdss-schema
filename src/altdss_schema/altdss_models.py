@@ -3579,6 +3579,11 @@ class XfmrCode(RootModel[Union[XfmrCode_X12X13X23, XfmrCode_XscArray]]):
 
             output.write(f' Taps={_as_list(_Tap)}')
 
+        # %LoadLoss resets the first two winding resistances; explicit %Rs take precedence.
+        _pctLoadLoss = fields.get('pctLoadLoss')
+        if _pctLoadLoss is not None:
+            output.write(f' %LoadLoss={_pctLoadLoss}')
+
         _pctR = fields.get('pctR')
         if _pctR is not None:
             if _length_Windings is None:
@@ -3612,10 +3617,6 @@ class XfmrCode(RootModel[Union[XfmrCode_X12X13X23, XfmrCode_XscArray]]):
         _HSRise = fields.get('HSRise')
         if _HSRise is not None:
             output.write(f' HSRise={_HSRise}')
-
-        _pctLoadLoss = fields.get('pctLoadLoss')
-        if _pctLoadLoss is not None:
-            output.write(f' %LoadLoss={_pctLoadLoss}')
 
         _pctNoLoadLoss = fields.get('pctNoLoadLoss')
         if _pctNoLoadLoss is not None:
@@ -5185,6 +5186,11 @@ class Transformer(RootModel[Union[Transformer_XfmrCode, Transformer_X12X13X23kV,
 
             output.write(f' Taps={_as_list(_Tap)}')
 
+        # %LoadLoss resets the first two winding resistances; explicit %Rs take precedence.
+        _pctLoadLoss = fields.get('pctLoadLoss')
+        if _pctLoadLoss is not None:
+            output.write(f' %LoadLoss={_pctLoadLoss}')
+
         _pctR = fields.get('pctR')
         if _pctR is not None:
             if _length_Windings is None:
@@ -5218,10 +5224,6 @@ class Transformer(RootModel[Union[Transformer_XfmrCode, Transformer_X12X13X23kV,
         _HSRise = fields.get('HSRise')
         if _HSRise is not None:
             output.write(f' HSRise={_HSRise}')
-
-        _pctLoadLoss = fields.get('pctLoadLoss')
-        if _pctLoadLoss is not None:
-            output.write(f' %LoadLoss={_pctLoadLoss}')
 
         _pctNoLoadLoss = fields.get('pctNoLoadLoss')
         if _pctNoLoadLoss is not None:
@@ -12362,5 +12364,4 @@ class Circuit(BaseModel):
         
         output.write('\n')
         
-
 
